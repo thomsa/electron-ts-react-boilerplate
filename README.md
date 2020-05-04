@@ -4,7 +4,7 @@ Another boilerplate for electron and react. This time [Electron](https://www.ele
 
 > What is cool about this boilerplate?
 
-**You need 2 npm commands work with it!**
+**It's lightweight and you need only 2 npm commands work with it!**
  (as for now...)
 
 `npm|yarn start` runs the whole application in development mode, which means you get hot-reload both for the react client AND for the electron application! 
@@ -13,6 +13,8 @@ If you change the client the CRA hot-reload fires, if the electron app, nodemon 
 `npm|yarn electron-package-all` creates builds for all available platforms, after creating a production build of both the CRA and the Electron app.
 
 Easy as 1-2-3!
+
+This boilerplate sets up the basis to develop and package your application quickly, it has no constraints on using certain libraries. If you want to add Redux, Flux, E2E frameworks, etc? Feel free to do so!
 
 > What is included besides Electron, React and TS?
 
