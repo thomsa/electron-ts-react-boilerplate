@@ -1,0 +1,20 @@
+appId: electron-ts-react-boilerplate
+mac:
+    category: "electron.ts.react.boilerplate"
+files:
+    - "./electron/dist/**/*"
+directories:
+    buildResources: resources
+extraFiles:
+    - from: build
+      to: renderer
+      filter:
+          - "**/*"
+extends: null
+win:
+    target:
+        - target: nsis
+          arch:
+              - x64
+              - ia32
+publish: null

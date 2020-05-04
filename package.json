@@ -1,0 +1,77 @@
+{
+    "name": "electron-ts-react-boilerplate",
+    "version": "1.0.0",
+    "description": "Electron TypeScript React Boilerplate",
+    "author": "Tamas Lorincz (lorincz.tamas90@gmail.com)",
+    "license": "MIT",
+    "main": "electron/dist/main.js",
+    "homepage": "./",
+    "scripts": {
+        "start": "concurrently --kill-others \"npm run react-start\" \"npm run electron-run-dev\" \"npm run electron-start\"",
+        "react-start": "BROWSER=none react-scripts start",
+        "react-build": "react-scripts build",
+        "react-test": "react-scripts test",
+        "react-eject": "react-scripts eject",
+        "electron-run-build": "webpack --config ./electron/config/webpack/webpack.$NODE_ENV.js",
+        "electron-build-prod": "NODE_ENV=production npm run electron-run-build",
+        "electron-run-dev": "NODE_ENV=development npm run electron-run-build",
+        "electron-start": "nodemon --watch ./electron/dist/**/* --exec 'electron ./electron/dist/main.js'",
+        "electron-package-mac": "npm run react-build && npm run electron-build-prod && electron-builder build --mac",
+        "electron-package-win": "npm run react-build && npm run electron-build-prod && electron-builder build --win",
+        "electron-package-linux": "npm run react-build && npm run electron-build-prod && electron-builder build --lin",
+        "electron-package-all": "npm run react-build && npm run electron-build-prod && electron-builder build -mwl"
+    },
+    "devDependencies": {
+        "concurrently": "^5.2.0",
+        "electron": "8.2.5",
+        "electron-packager": "^14.2.1",
+        "husky": "^4.2.5",
+        "nodemon": "^2.0.3",
+        "prettier": "^2.0.5",
+        "pretty-quick": "^2.0.1",
+        "ts-loader": "^7.0.2",
+        "tsconfig-paths-webpack-plugin": "^3.2.0",
+        "typescript": "^3.8.3",
+        "webpack-cli": "^3.3.11",
+        "webpack-merge": "^4.2.2",
+        "webpack-node-externals": "^1.7.2"
+    },
+    "dependencies": {
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.3.2",
+        "@testing-library/user-event": "^7.1.2",
+        "@types/webpack-env": "^1.14.0",
+        "clean-webpack-plugin": "^3.0.0",
+        "dotenv": "^8.2.0",
+        "dotenv-webpack": "^1.7.0",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-scripts": "3.4.1",
+        "typedi": "^0.8.0",
+        "webpack": "4.42.0"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/thomsa/electron-ts-react-boilerplate.git"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "pretty-quick --staged"
+        }
+    }
+}
